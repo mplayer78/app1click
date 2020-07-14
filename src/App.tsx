@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Draw from "./components/Draw";
+import { frameDetails } from "./types/drawTypes";
 
-function App() {
+const win: frameDetails = {
+  frameDims: [2400, 900],
+  offset: [0, 0],
+  divisions: [[600, 1200], [385]],
+  areas: [
+    [0, 0, 1, 2],
+    [1, 0, 1, 1],
+    [1, 1, 1, 1],
+    [2, 0, 1, 2],
+  ],
+  sashes: [
+    [0, 0, 1, 2],
+    [1, 0, 1, 1],
+    [2, 0, 1, 2],
+  ],
+};
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Draw windowSpec={win}></Draw>
     </div>
   );
 }
-
-export default App;
